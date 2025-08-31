@@ -76,6 +76,8 @@ body {
   .searchbar { flex-direction: column; align-items: stretch; }
   .actions { flex-direction: column; }
 }
+
+
 /* Background Gradient */
 body {
   margin: 0;
