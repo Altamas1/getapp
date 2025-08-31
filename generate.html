@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Apps JSON Generator</title>
-  <style>
-    body { font-family: Arial; background:#0d1117; color:#fff; padding:20px; }
-    input, button { margin:10px 0; padding:10px; }
-    pre { background:#161b22; padding:15px; border-radius:8px; white-space: pre-wrap; }
-  </style>
+  <title>Generate Apps JSON</title>
 </head>
 <body>
-  <h2>📦 Auto JSON Generator for Apps</h2>
-  <p>Select your <b>apps folder</b> (APK/EXE files):</p>
-  
+  <h2>Auto Generate Apps JSON</h2>
   <input type="file" id="fileInput" webkitdirectory multiple>
-  <button onclick="generate()">Generate apps.json</button>
-  
-  <h3>Generated apps.json:</h3>
+  <button onclick="generate()">Generate JSON</button>
   <pre id="output"></pre>
 
   <script>
@@ -23,15 +14,18 @@
       let files = document.getElementById("fileInput").files;
       let apps = [];
       for (let f of files) {
-        if (f.name.endsWith(".apk") || f.name.endsWith(".exe")) {
+        if (f.name.endsWith(".apk")) {
+          let name = f.name.replace(/\.apk$/, "");
           apps.push({
-            name: f.name.replace(/\.[^/.]+$/, ""),
-            version: "v1.0.0",
-            size: (f.size/1024/1024).toFixed(1) + " MB",
+            name: name,
+            version: "1.0.0",
+            description: "No description available.",
+            size: (f.size / (1024 * 1024)).toFixed(1) + " MB",
             updated: new Date().toISOString().split("T")[0],
-            minsdk: 21,
-            icon: "images/default.png",
-            file: "apps/" + f.name
+            sdk: "Android",
+            icon: "icons/" + name.toLowerCase() + ".png", // expects icon with same name
+            file: "apks/" + f.name, // direct download
+            hash: "N/A"
           });
         }
       }
