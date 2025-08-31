@@ -11,9 +11,43 @@
     "icon": "apks/images.png",
     "download_url": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
     "sha256": ""
+  },
+
+
+
+  {
+    "name": "RingzMain",
+    "version": "1.0.0",
+    "description": "No description available.",
+    "size": "158.9 MB",
+    "updated": "2025-08-31",
+    "sdk": "Android",
+    "icon": "icons/ringzmain.png",
+    "file": "apks/RingzMain.apk",
+    "hash": "N/A"
+  },
+  {
+    "name": "allmovieland_latest",
+    "version": "1.0.0",
+    "description": "No description available.",
+    "size": "16.5 MB",
+    "updated": "2025-08-31",
+    "sdk": "Android",
+    "icon": "icons/allmovieland_latest.png",
+    "file": "apks/allmovieland_latest.apk",
+    "hash": "N/A"
+  },
+  {
+    "name": "app20",
+    "version": "1.0.0",
+    "description": "No description available.",
+    "size": "29.9 MB",
+    "updated": "2025-08-31",
+    "sdk": "Android",
+    "icon": "icons/app20.png",
+    "file": "apks/app20.apk",
+    "hash": "N/A"
   }
-
-
 
   
 
