@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Generate Apps JSON</title>
+  <title>Apps JSON Generator</title>
+  <style>
+    body { font-family: Arial; background:#0d1117; color:#fff; padding:20px; }
+    input, button { margin:10px 0; padding:10px; }
+    pre { background:#161b22; padding:15px; border-radius:8px; white-space: pre-wrap; }
+  </style>
 </head>
-<body style="font-family: Arial; padding:20px;">
-  <h2>📦 Apps JSON Generator</h2>
+<body>
+  <h2>📦 Auto JSON Generator for Apps</h2>
   <p>Select your <b>apps folder</b> (APK/EXE files):</p>
   
   <input type="file" id="fileInput" webkitdirectory multiple>
-  <button onclick="generate()">Generate JSON</button>
+  <button onclick="generate()">Generate apps.json</button>
+  
   <h3>Generated apps.json:</h3>
-  <pre id="output" style="background:#f5f5f5;padding:10px;border-radius:5px;"></pre>
+  <pre id="output"></pre>
 
   <script>
     function generate() {
@@ -19,7 +25,11 @@
       for (let f of files) {
         if (f.name.endsWith(".apk") || f.name.endsWith(".exe")) {
           apps.push({
-            name: f.name.replace(/\.[^/.]+$/, "").toUpperCase(),
+            name: f.name.replace(/\.[^/.]+$/, ""),
+            version: "v1.0.0",
+            size: (f.size/1024/1024).toFixed(1) + " MB",
+            updated: new Date().toISOString().split("T")[0],
+            minsdk: 21,
             icon: "images/default.png",
             file: "apps/" + f.name
           });
