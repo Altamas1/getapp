@@ -120,30 +120,71 @@
 
   <!-- Scripts -->
   <script>
-    // Load current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Load Apps from apps.json
+    let appsData = []; // store full apps.json
+
     async function loadApps() {
-      const res = await fetch("apps.json");
-      const apps = await res.json();
+      try {
+        const res = await fetch("apps.json");
+        appsData = await res.json();
+        renderApps(appsData);
+      } catch (err) {
+        console.error("Failed to load apps.json", err);
+      }
+    }
+
+    function renderApps(apps) {
       const container = document.getElementById("apps");
       const template = document.getElementById("app-card");
+      container.innerHTML = ""; // clear old
 
       apps.forEach(app => {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".app-icon").src = app.icon;
         clone.querySelector(".app-name").textContent = app.name;
         clone.querySelector(".app-version").textContent = app.version;
-        clone.querySelector(".app-desc").textContent = app.description;
+        clone.querySelector(".app-desc").textContent = app.description || "No description available.";
         clone.querySelector(".size").textContent = "📦 " + app.size;
         clone.querySelector(".updated").textContent = "🗓 " + app.updated;
         clone.querySelector(".sdk").textContent = "🔧 SDK " + app.sdk;
-        clone.querySelector(".download").href = app.download;
-        clone.querySelector(".copy-hash").setAttribute("data-hash", app.sha256);
+
+        // correct fields from apps.json
+        clone.querySelector(".download").href = app.file;
+        clone.querySelector(".copy-hash").setAttribute("data-hash", app.hash);
+
+        // copy hash
+        clone.querySelector(".copy-hash").addEventListener("click", () => {
+          navigator.clipboard.writeText(app.hash || "N/A");
+          alert("Hash copied: " + (app.hash || "N/A"));
+        });
+
         container.appendChild(clone);
       });
     }
+
+    // search + sort logic
+    document.getElementById("search").addEventListener("input", function() {
+      const q = this.value.toLowerCase();
+      const filtered = appsData.filter(app => app.name.toLowerCase().includes(q));
+      renderApps(filtered);
+    });
+
+    document.getElementById("sort").addEventListener("change", function() {
+      const value = this.value;
+      let sorted = [...appsData];
+
+      if (value === "name") {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (value === "updated") {
+        sorted.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+      } else if (value === "size") {
+        // assumes size in MB
+        sorted.sort((a, b) => parseFloat(a.size) - parseFloat(b.size));
+      }
+      renderApps(sorted);
+    });
+
     loadApps();
   </script>
 </body>
