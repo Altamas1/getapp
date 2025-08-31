@@ -140,7 +140,29 @@
             card.querySelector(".download").href = asset.browser_download_url;
             card.querySelector(".size").textContent = (asset.size / (1024*1024)).toFixed(2) + " MB";
             card.querySelector(".updated").textContent = "Updated: " + new Date(release.published_at).toLocaleDateString();
-            card.querySelector(".app-icon").src = `icons/${release.name}.png`; // 👈 set your app icon
+            const appName = release.name;  
+const iconPng = `icons/${appName}.png`;  
+const iconJpg = `icons/${appName}.jpg`;  
+const iconJpeg = `icons/${appName}.jpeg`;  
+
+// Naya image object banao
+const img = new Image();
+img.onload = function() {
+  card.querySelector(".app-icon").src = img.src;
+};
+
+// Pehle PNG try karega, fir JPG, fir JPEG
+img.onerror = function() {
+  if (img.src.endsWith(".png")) {
+    img.src = iconJpg;
+  } else if (img.src.endsWith(".jpg")) {
+    img.src = iconJpeg;
+  } else {
+    img.src = "assets/logo.svg"; // default logo
+  }
+};
+
+img.src = iconPng;
             appsContainer.appendChild(card);
           });
         } else {
