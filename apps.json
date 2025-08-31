@@ -1,4 +1,20 @@
 [
+
+  {
+    "name": "WhatsApp",
+    "description": "Fast and secure messaging app",
+    "version": "2.23",
+    "download": "https://example.com/whatsapp.apk",
+    "sha256": "dummyhash1234567890"
+  },
+  {
+    "name": "Instagram",
+    "description": "Share your photos and videos",
+    "version": "1.0",
+    "download": "https://example.com/instagram.apk",
+    "sha256": "dummyhash0987654321"
+  },
+
   {
     "name": "Pikashow",
    "package": "app.pikashow",
