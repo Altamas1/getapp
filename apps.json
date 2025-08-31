@@ -5,7 +5,7 @@
     "desc": "Watch all latest movies and series on this app",
     "size": "16.4",
     "updated": "2025-08-31",
-    "sdk": "21+",
+ 
     "icon": "apks/images.png",
     "download": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
     "hash": "a1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
@@ -16,7 +16,7 @@
     "desc": "Open-source email client for Android.",
     "size": "14 MB",
     "updated": "2025-08-15",
-    "sdk": "23+",
+   
     "icon": "assets/k9mail.png",
     "download": "https://k9mail.app/download.apk",
     "hash": "b1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
@@ -27,7 +27,7 @@
     "desc": "Free and open-source podcast manager.",
     "size": "12 MB",
     "updated": "2025-08-10",
-    "sdk": "21+",
+    
     "icon": "assets/antennapod.png",
     "download": "https://antennapod.org/download.apk",
     "hash": "c1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
