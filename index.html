@@ -2,121 +2,158 @@
 <html lang="en">
 <head>
 <meta name="google-site-verification" content="itEGE4bAYj1ePlgXvJKdiS7Cu-UNduWJzKs3aA0snyE" />
-<title>GeatApp — Safe APK Downloads</title>
+<title>My APK Downloader</title>
 <meta name="description" content="Download safe and fast APK files for your favorite apps.">
 <meta name="keywords" content="APK, download, android apps, free apps">
 <meta name="robots" content="index, follow">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>APK Hub — Safe Downloads</title>
+<meta name="description" content="Publish your own APKs or link to official developer mirrors. Clean, mobile-first design." />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 <link rel="icon" href="assets/logo.svg">
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="/">
-      <img src="apks/IMG_20250831_151514.png" alt="APK Hub Logo" class="logo" />
-      <span>GeatApp</span>
-    </a>
-    <nav class="nav">
-      <a href="#apps">Apps</a>
-      <a href="#about">About</a>
-      <button id="open-terms" class="btn btn-ghost">Terms</button>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="apks/IMG_20250831_151514.png" alt="APK Hub" class="logo" />
+        <span>GeatApp</span>
+      </a>
+      <nav class="nav">
+        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
+        <button id="open-terms" class="btn btn-ghost">Terms</button>
+      </nav>
+    </div>
+  </header>
 
-<main>
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>Download Smarter, Faster 🚀 <span class="accent">APKs</span></h1>
-      <p class="sub">Get your favorite apps with just one click. Safe, fast, and simple.</p>
-      <div class="searchbar">
-        <input id="search" type="search" placeholder="Search apps…" aria-label="Search apps" />
-        <select id="sort">
-          <option value="name">Sort: Name</option>
-          <option value="updated">Sort: Last Updated</option>
-          <option value="size">Sort: Size</option>
-        </select>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Download Smarter, Faster 🚀<span class="accent">APKs</span></h1>
+        <p class="sub">Get your favorite apps with just one click. Safe, fast, and simple </p>
+        <div class="searchbar">
+          <input id="search" type="search" placeholder="Search apps…" aria-label="Search apps" />
+          <select id="sort">
+            <option value="name">Sort: Name</option>
+            <option value="updated">Sort: Last Updated</option>
+            <option value="size">Sort: Size</option>
+          </select>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="apps" class="container grid"></section>
+    <!-- Auto APK list -->
+    <section id="apps" class="container grid"></section>
 
-  <section id="about" class="container about">
-    <h2>About</h2>
-    <p>
-      Welcome to GeatApp – your trusted place for downloading apps safely and easily.
-      Our mission is to make app downloading simple, secure, and hassle-free.
-    </p>
-    <ul>
-      <li>✅ Fast downloads without unnecessary steps</li>
-      <li>✅ Safe files that are checked before publishing</li>
-      <li>✅ User-friendly design so you can quickly find what you need</li>
-      <li>We are constantly working to add more apps and features so that you always get the best downloading experience.</li>
-      <li>Your support motivates us to grow and bring you the apps you love – faster and safer than ever. 🚀</li>
-    </ul>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> GeatApp. All rights reserved.</p>
-    <div class="links">
-      <button id="open-terms-footer" class="linkish">Terms & Disclaimer</button>
-    </div>
-  </div>
-</footer>
-
-<!-- Terms Modal -->
-<dialog id="terms" class="modal">
-  <form method="dialog" class="modal-card">
-    <h3>Terms & Disclaimer</h3>
-    <div class="modal-body">
+    <section id="about" class="container about">
+      <h2>About</h2>
       <p>
-        This site is provided for distributing the owner’s apps or linking to official mirrors only.
-        By proceeding, you confirm you will not host or link to copyrighted or untrusted APKs.
+        Welcome to GeatApp – your trusted place for downloading apps safely and easily.
+        Our mission is to make app downloading simple, secure, and hassle-free.
+        <li>✅ Fast downloads without unnecessary steps</li>
+        <li>✅ Safe files that are checked before publishing</li>
+        <li>✅ User-friendly design so you can quickly find what you need</li>
+        <li>We are constantly working to add more apps and features so that you always get the best downloading experience.</li>
+        <li>Your support motivates us to grow and bring you the apps you love – faster and safer than ever. 🚀</li>
       </p>
-      <ul>
-        <li>No piracy. Respect developer licenses.</li>
-        <li>Verify checksums. Install at your own risk.</li>
-        <li>We don’t collect personal data.</li>
-      </ul>
-    </div>
-    <div class="modal-actions">
-      <button value="cancel" class="btn btn-ghost">Close</button>
-      <button id="accept-terms" class="btn">I Understand</button>
-    </div>
-  </form>
-</dialog>
+    </section>
+  </main>
 
-<template id="app-card">
-  <article class="card">
-    <div class="card-left">
-      <img class="app-icon" alt="App icon" />
-    </div>
-    <div class="card-right">
-      <div class="card-head">
-        <h3 class="app-name"></h3>
-        <span class="badge app-version"></span>
-      </div>
-      <p class="app-desc"></p>
-      <div class="meta">
-        <span class="chip size"></span>
-        <span class="chip updated"></span>
-        <span class="chip sdk"></span>
-      </div>
-      <div class="actions">
-        <a class="btn download" target="_blank" rel="noopener noreferrer">Get APK</a>
-        <button class="btn btn-ghost copy-hash" data-hash="">Copy SHA-256</button>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Geat App. All rights reserved.</p>
+      <div class="links">
+        <button id="open-terms-footer" class="linkish">Terms & Disclaimer</button>
       </div>
     </div>
-  </article>
-</template>
+  </footer>
 
-<script src="script.js" defer></script>
+  <!-- Terms Modal -->
+  <dialog id="terms" class="modal">
+    <form method="dialog" class="modal-card">
+      <h3>Terms & Disclaimer</h3>
+      <div class="modal-body">
+        <p>
+          This site is provided for distributing the owner’s apps or linking to official mirrors only.
+          By proceeding, you confirm you will not host or link to copyrighted or untrusted APKs.
+        </p>
+        <ul>
+          <li>No piracy. Respect developer licenses.</li>
+          <li>Verify checksums. Install at your own risk.</li>
+          <li>We don’t collect personal data.</li>
+        </ul>
+      </div>
+      <div class="modal-actions">
+        <button value="cancel" class="btn btn-ghost">Close</button>
+        <button id="accept-terms" class="btn">I Understand</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Template for app cards -->
+  <template id="app-card">
+    <article class="card">
+      <div class="card-left">
+        <img class="app-icon" alt="App icon" />
+      </div>
+      <div class="card-right">
+        <div class="card-head">
+          <h3 class="app-name"></h3>
+          <span class="badge app-version"></span>
+        </div>
+        <p class="app-desc"></p>
+        <div class="meta">
+          <span class="chip size"></span>
+          <span class="chip updated"></span>
+        </div>
+        <div class="actions">
+          <a class="btn download" target="_blank" rel="noopener noreferrer">Get APK</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Auto-fetch script -->
+  <script>
+    async function loadLatestRelease() {
+      const username = "Altamas1"; // 👈 change this
+      const repo = "geatapp";           // 👈 change this
+      const url = `https://api.github.com/repos/${username}/${repo}/releases/latest`;
+
+      try {
+        const response = await fetch(url);
+        const release = await response.json();
+
+        const appsContainer = document.getElementById("apps");
+        const template = document.getElementById("app-card");
+
+        if (release.assets && release.assets.length > 0) {
+          release.assets.forEach(asset => {
+            const card = template.content.cloneNode(true);
+            card.querySelector(".app-name").textContent = release.name || "My App";
+            card.querySelector(".app-version").textContent = release.tag_name || "v1.0.0";
+            card.querySelector(".app-desc").textContent = release.body || "Latest stable release.";
+            card.querySelector(".download").href = asset.browser_download_url;
+            card.querySelector(".size").textContent = (asset.size / (1024*1024)).toFixed(2) + " MB";
+            card.querySelector(".updated").textContent = "Updated: " + new Date(release.published_at).toLocaleDateString();
+            card.querySelector(".app-icon").src = "assets/logo.svg"; // 👈 set your app icon
+            appsContainer.appendChild(card);
+          });
+        } else {
+          appsContainer.innerHTML = "<p>No APK found in the latest release.</p>";
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById("apps").innerHTML = "<p>Error loading releases.</p>";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadLatestRelease);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
