@@ -1,24 +1,24 @@
 [
   {
-    "name": "WhatsApp",
-    "version": "2.24.15",
-    "description": "Chat with friends and family instantly.",
-    "size": "54 MB",
-    "updated": "2025-08-30",
-    "sdk": "Android 5.0+",
-    "icon": "apks/whatsapp.png",
-    "file": "apks/whatsapp.apk",
+    "name": "Allmovieland",
+    "version": "8.0.3",
+    "description": "Watch all your favourite movie and series on this app.",
+    "size": "26 MB",
+    "updated": "2025-08-31",
+    "sdk": "Android 10.0+",
+    "icon": "https://github.com/Altamas1/getapp/releases/download/V2/images.jpeg",
+    "file": "https://github.com/Altamas1/getapp/releases/download/V1/allmovieland_latest.apk",
     "hash": "abc1234567890"
   },
   {
-    "name": "Instagram",
-    "version": "305.1",
-    "description": "Share photos and videos with your followers.",
-    "size": "80 MB",
-    "updated": "2025-08-25",
-    "sdk": "Android 6.0+",
-    "icon": "apks/instagram.png",
-    "file": "apks/instagram.apk",
+    "name": "Ringz",
+    "version": "7.0.1",
+    "description": "Watch all your favourite movie and series on this app.",
+    "size": "160 MB",
+    "updated": "2025-08-31",
+    "sdk": "Android 10.0+",
+    "icon": "https://github.com/Altamas1/getapp/releases/download/V2/Ringz.jpeg",
+    "file": "https://github.com/Altamas1/getapp/releases/download/V1/RingzMain.apk",
     "hash": "xyz987654321"
   }
 ]
