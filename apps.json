@@ -1,0 +1,26 @@
+[
+  {
+    "name": "My Camera Pro",
+    "package": "com.example.mycamerapro",
+    "version": "1.2.0",
+    "description": "A lightweight camera app with manual controls.",
+    "size_bytes": 23592960,
+    "min_sdk": 24,
+    "updated": "2025-08-20",
+    "icon": "assets/placeholder.png",
+    "download_url": "https://your-cdn-or-storage.example.com/apks/mycamerapro-1.2.0.apk",
+    "sha256": "6e3b3e2a2f3f0a9e9d1c78fd2b7c3b4a0b8f9b1b0c4d5e6f7a8b9c0d1e2f3a4b"
+  },
+  {
+    "name": "Notes Lite",
+    "package": "app.notes.lite",
+    "version": "0.9.5",
+    "description": "Simple offline notes with export.",
+    "size_bytes": 7340032,
+    "min_sdk": 21,
+    "updated": "2025-07-02",
+    "icon": "assets/placeholder.png",
+    "download_url": "https://your-cdn-or-storage.example.com/apks/noteslite-0.9.5.apk",
+    "sha256": ""
+  }
+]
