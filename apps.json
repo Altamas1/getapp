@@ -1,25 +1,15 @@
 [
+  
   {
     "name": "Pikashow",
+   
     "version": "10.8.2",
-    "desc": "Watch all latest movies and series on this app",
-    "size": "16.4",
-    "updated": "2025-08-31",
- 
-    "icon": "apks/images.png",
-    "download": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
-    "hash": "a1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-  },
-  {
-    "name": "Notes Lite",
-    "package": "app.notes.lite",
-    "version": "0.9.5",
-    "description": "Simple offline notes with export.",
-    "size_bytes": 7340032,
+    "description": "Watch all latest movies and series on this app",
+    "size_bytes": 17.5,
     "min_sdk": 21,
-    "updated": "2025-07-02",
-    "icon": "assets/placeholder.png",
-    "download_url": "https://your-cdn-or-storage.example.com/apks/noteslite-0.9.5.apk",
+    "updated": "2025-08-31",
+    "icon": "apks/images.png",
+    "download_url": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
     "sha256": ""
   }
 ]
