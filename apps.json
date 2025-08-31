@@ -1,13 +1,13 @@
 [
   {
-    "name": "F-Droid",
-    "version": "1.19",
-    "desc": "The open-source app store for Android.",
-    "size": "8 MB",
-    "updated": "2025-08-20",
+    "name": "Pikashow",
+    "version": "10.8.2",
+    "desc": "Watch all latest movies and series on this app",
+    "size": "16.4",
+    "updated": "2025-08-31",
     "sdk": "21+",
-    "icon": "assets/fdroid.png",
-    "download": "https://f-droid.org/F-Droid.apk",
+    "icon": "apks/images.png",
+    "download": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
     "hash": "a1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
   },
   {
