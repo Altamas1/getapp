@@ -1,14 +1,14 @@
 [
   {
-    "name": "My Camera Pro",
+    "name": "Ringz",
     "package": "com.example.mycamerapro",
-    "version": "1.2.0",
-    "description": "A lightweight camera app with manual controls.",
+    "version": "7.0.1",
+    "description": "Watch all latest movies and series on this app.",
     "size_bytes": 23592960,
     "min_sdk": 24,
     "updated": "2025-08-20",
-    "icon": "assets/placeholder.png",
-    "download_url": "https://your-cdn-or-storage.example.com/apks/mycamerapro-1.2.0.apk",
+    "icon": "Download/Ringz.jpeg",
+    "download_url": "Download/RingzMain.apk",
     "sha256": "6e3b3e2a2f3f0a9e9d1c78fd2b7c3b4a0b8f9b1b0c4d5e6f7a8b9c0d1e2f3a4b"
   },
   {
