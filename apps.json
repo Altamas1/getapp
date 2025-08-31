@@ -1,7 +1,7 @@
 [
   {
     "name": "Pikashow",
-   ,
+   "package": "app.pikashow",
     "version": "10.8.2",
     "description": "Watch all latest movies and series on this app.",
     "size_bytes": 16400000,
@@ -9,6 +9,7 @@
     "updated": "2025-08-20",
     "icon": "apks/images.png",
     "download_url": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
+"sha255": ""
    
   },
   {
