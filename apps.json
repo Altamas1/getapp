@@ -9,8 +9,7 @@
     "updated": "2025-08-20",
     "icon": "apks/images.png",
     "download_url": "apks/Picasso-App-Latest-Version-V-10.8.4.apk",
-"sha255": ""
-   
+
   },
   {
     "name": "Notes Lite",
@@ -22,6 +21,6 @@
     "updated": "2025-07-02",
     "icon": "assets/placeholder.png",
     "download_url": "https://your-cdn-or-storage.example.com/apks/noteslite-0.9.5.apk",
-    "sha256": ""
+  
   }
 ]
