@@ -76,3 +76,11 @@ body {
   .searchbar { flex-direction: column; align-items: stretch; }
   .actions { flex-direction: column; }
 }
+/* Background Gradient */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #333;
+  min-height: 100vh;
+}
