@@ -5,7 +5,7 @@
    
     "version": "10.8.2",
     "description": "Watch all latest movies and series on this app",
-    "size_bytes": 17.5,
+    "size_bytes": 17000000,
     "min_sdk": 21,
     "updated": "2025-08-31",
     "icon": "apks/images.png",
