@@ -2,20 +2,23 @@
 <html>
 <head>
   <title>Generate Apps JSON</title>
+  <meta charset="utf-8">
 </head>
 <body>
-  <h2>Auto Generate Apps JSON</h2>
+  <h2>Auto Generate apps.json</h2>
   <input type="file" id="fileInput" webkitdirectory multiple>
   <button onclick="generate()">Generate JSON</button>
-  <pre id="output"></pre>
+  <pre id="output" style="white-space: pre-wrap; background:#eee; padding:10px;"></pre>
 
   <script>
     function generate() {
       let files = document.getElementById("fileInput").files;
       let apps = [];
+
       for (let f of files) {
         if (f.name.endsWith(".apk")) {
           let name = f.name.replace(/\.apk$/, "");
+
           apps.push({
             name: name,
             version: "1.0.0",
@@ -23,12 +26,13 @@
             size: (f.size / (1024 * 1024)).toFixed(1) + " MB",
             updated: new Date().toISOString().split("T")[0],
             sdk: "Android",
-            icon: "icons/" + name.toLowerCase() + ".png", // expects icon with same name
-            file: "apks/" + f.name, // direct download
+            icon: "icons/" + name.toLowerCase() + ".png",   // app icon
+            file: "apks/" + f.name,                         // direct download
             hash: "N/A"
           });
         }
       }
+
       document.getElementById("output").textContent = JSON.stringify(apps, null, 2);
     }
   </script>
