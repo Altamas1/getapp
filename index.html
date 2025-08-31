@@ -146,5 +146,31 @@
     }
     loadApps();
   </script>
+
+
+
+fetch("apps.json")
+  .then(res => res.json())
+  .then(apps => {
+    const container = document.getElementById("apps");
+    apps.forEach(app => {
+      container.innerHTML += `
+        <div class="app-card">
+          <img src="${app.icon}" alt="${app.name}">
+          <h3>${app.name}</h3>
+          <p>${app.size} | Updated: ${app.updated}</p>
+          <a href="${app.file}" download>Download</a>
+        </div>
+      `;
+    });
+  });
+
+
+
+
+
+
+
 </body>
+
 </html>
