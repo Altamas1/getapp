@@ -11,25 +11,15 @@
     "hash": "a1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
   },
   {
-    "name": "K-9 Mail",
-    "version": "6.802",
-    "desc": "Open-source email client for Android.",
-    "size": "14 MB",
-    "updated": "2025-08-15",
-   
-    "icon": "assets/k9mail.png",
-    "download": "https://k9mail.app/download.apk",
-    "hash": "b1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-  },
-  {
-    "name": "AntennaPod",
-    "version": "3.0.0",
-    "desc": "Free and open-source podcast manager.",
-    "size": "12 MB",
-    "updated": "2025-08-10",
-    
-    "icon": "assets/antennapod.png",
-    "download": "https://antennapod.org/download.apk",
-    "hash": "c1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+    "name": "Notes Lite",
+    "package": "app.notes.lite",
+    "version": "0.9.5",
+    "description": "Simple offline notes with export.",
+    "size_bytes": 7340032,
+    "min_sdk": 21,
+    "updated": "2025-07-02",
+    "icon": "assets/placeholder.png",
+    "download_url": "https://your-cdn-or-storage.example.com/apks/noteslite-0.9.5.apk",
+    "sha256": ""
   }
 ]
