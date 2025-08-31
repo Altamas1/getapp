@@ -2,123 +2,121 @@
 <html lang="en">
 <head>
 <meta name="google-site-verification" content="itEGE4bAYj1ePlgXvJKdiS7Cu-UNduWJzKs3aA0snyE" />
-<title>My APK Downloader</title>
+<title>GeatApp — Safe APK Downloads</title>
 <meta name="description" content="Download safe and fast APK files for your favorite apps.">
 <meta name="keywords" content="APK, download, android apps, free apps">
 <meta name="robots" content="index, follow">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>APK Hub — Safe Downloads</title>
-  <meta name="description" content="Publish your own APKs or link to official developer mirrors. Clean, mobile-first design." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/logo.svg">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="assets/logo.svg">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="apks/IMG_20250831_151514.png" alt="APK Hub" class="logo" />
-        <span>GeatApp</span>
-      </a>
-      <nav class="nav">
-        <a href="#apps">Apps</a>
-        <a href="#about">About</a>
-        <button id="open-terms" class="btn btn-ghost">Terms</button>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <h1>Download Smarter, Faster 🚀<span class="accent">APKs</span></h1>
-        <p class="sub">Get your favorite apps with just one click. Safe, fast, and simple </p>
-        <div class="searchbar">
-          <input id="search" type="search" placeholder="Search apps…" aria-label="Search apps" />
-          <select id="sort">
-            <option value="name">Sort: Name</option>
-            <option value="updated">Sort: Last Updated</option>
-            <option value="size">Sort: Size</option>
-          </select>
-        </div>
-      </div>
-    </section>
-    <section id="apps" class="container grid"></section>
-    <section id="about" class="container about">
-      <h2>About</h2>
-      <p>
-        Welcome to GeatApp – your trusted place for downloading apps safely and easily.
-Our mission is to make app downloading simple, secure, and hassle-free.
-<li>
-At GeatApp, we focus on:
-</li>
-<li>
-✅ Fast downloads without unnecessary steps
-</li><li>
-✅ Safe files that are checked before publishing
-</li><li>
-✅ User-friendly design so you can quickly find what you need
-</li><li>
-We are constantly working to add more apps and features so that you always get the best downloading experience.
-</li><li>
-Your support motivates us to grow and bring you the apps you love – faster and safer than ever. 🚀</li>
-      </p>
-  </section>
-  </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Geat App. All rights reserved.</p>
-      <div class="links">
-        <button id="open-terms-footer" class="linkish">Terms & Disclaimer</button>
-       
-      </div>
-    </div>
-  </footer>
-  <!-- Terms Modal -->
-  <dialog id="terms" class="modal">
-    <form method="dialog" class="modal-card">
-      <h3>Terms & Disclaimer</h3>
-      <div class="modal-body">
-        <p>
-          This site is provided for distributing the owner’s apps or linking to official mirrors only.
-          By proceeding, you confirm you will not host or link to copyrighted or untrusted APKs.
-        </p>
-        <ul>
-          <li>No piracy. Respect developer licenses.</li>
-          <li>Verify checksums. Install at your own risk.</li>
-          <li>We don’t collect personal data.</li>
-        </ul>
-      </div>
-      <div class="modal-actions">
-        <button value="cancel" class="btn btn-ghost">Close</button>
-        <button id="accept-terms" class="btn">I Understand</button>
-      </div>
-    </form>
-  </dialog>
-  <template id="app-card">
-    <article class="card">
-      <div class="card-left">
-        <img class="app-icon" alt="App icon" />
-      </div>
-      <div class="card-right">
-        <div class="card-head">
-          <h3 class="app-name"></h3>
-          <span class="badge app-version"></span>
-        </div>
-        <p class="app-desc"></p>
-        <div class="meta">
-          <span class="chip size"></span>
-          <span class="chip updated"></span>
-          <span class="chip sdk"></span>
-        </div>
-        <div class="actions">
-          <a class="btn download" target="_blank" rel="noopener noreferrer">Get APK</a>
-          <button class="btn btn-ghost copy-hash" data-hash="">Copy SHA-256</button>
-        </div>
-      </div>
-    </article>
-  </template>
-  <script src="script.js" defer></script>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <img src="apks/IMG_20250831_151514.png" alt="APK Hub Logo" class="logo" />
+      <span>GeatApp</span>
+    </a>
+    <nav class="nav">
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <button id="open-terms" class="btn btn-ghost">Terms</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Download Smarter, Faster 🚀 <span class="accent">APKs</span></h1>
+      <p class="sub">Get your favorite apps with just one click. Safe, fast, and simple.</p>
+      <div class="searchbar">
+        <input id="search" type="search" placeholder="Search apps…" aria-label="Search apps" />
+        <select id="sort">
+          <option value="name">Sort: Name</option>
+          <option value="updated">Sort: Last Updated</option>
+          <option value="size">Sort: Size</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps" class="container grid"></section>
+
+  <section id="about" class="container about">
+    <h2>About</h2>
+    <p>
+      Welcome to GeatApp – your trusted place for downloading apps safely and easily.
+      Our mission is to make app downloading simple, secure, and hassle-free.
+    </p>
+    <ul>
+      <li>✅ Fast downloads without unnecessary steps</li>
+      <li>✅ Safe files that are checked before publishing</li>
+      <li>✅ User-friendly design so you can quickly find what you need</li>
+      <li>We are constantly working to add more apps and features so that you always get the best downloading experience.</li>
+      <li>Your support motivates us to grow and bring you the apps you love – faster and safer than ever. 🚀</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> GeatApp. All rights reserved.</p>
+    <div class="links">
+      <button id="open-terms-footer" class="linkish">Terms & Disclaimer</button>
+    </div>
+  </div>
+</footer>
+
+<!-- Terms Modal -->
+<dialog id="terms" class="modal">
+  <form method="dialog" class="modal-card">
+    <h3>Terms & Disclaimer</h3>
+    <div class="modal-body">
+      <p>
+        This site is provided for distributing the owner’s apps or linking to official mirrors only.
+        By proceeding, you confirm you will not host or link to copyrighted or untrusted APKs.
+      </p>
+      <ul>
+        <li>No piracy. Respect developer licenses.</li>
+        <li>Verify checksums. Install at your own risk.</li>
+        <li>We don’t collect personal data.</li>
+      </ul>
+    </div>
+    <div class="modal-actions">
+      <button value="cancel" class="btn btn-ghost">Close</button>
+      <button id="accept-terms" class="btn">I Understand</button>
+    </div>
+  </form>
+</dialog>
+
+<template id="app-card">
+  <article class="card">
+    <div class="card-left">
+      <img class="app-icon" alt="App icon" />
+    </div>
+    <div class="card-right">
+      <div class="card-head">
+        <h3 class="app-name"></h3>
+        <span class="badge app-version"></span>
+      </div>
+      <p class="app-desc"></p>
+      <div class="meta">
+        <span class="chip size"></span>
+        <span class="chip updated"></span>
+        <span class="chip sdk"></span>
+      </div>
+      <div class="actions">
+        <a class="btn download" target="_blank" rel="noopener noreferrer">Get APK</a>
+        <button class="btn btn-ghost copy-hash" data-hash="">Copy SHA-256</button>
+      </div>
+    </div>
+  </article>
+</template>
+
+<script src="script.js" defer></script>
 </body>
 </html>
