@@ -119,54 +119,59 @@
 
   <!-- Auto-fetch script -->
   <script>
-    async function loadLatestRelease() {
-      const username = "Altamas1"; // 👈 change this
-      const repo = "getapp";           // 👈 change this
-      const url = `https://api.github.com/repos/${username}/${repo}/releases/latest`;
+    async function loadAllReleases() {
+      const username = "Altamas1"; // 👈 apna GitHub username
+      const repo = "getapp";       // 👈 apna repo
+      const url = `https://api.github.com/repos/${username}/${repo}/releases`;
 
       try {
         const response = await fetch(url);
-        const release = await response.json();
+        const releases = await response.json();
 
         const appsContainer = document.getElementById("apps");
         const template = document.getElementById("app-card");
 
-        if (release.assets && release.assets.length > 0) {
-          release.assets.forEach(asset => {
-            const card = template.content.cloneNode(true);
-            card.querySelector(".app-name").textContent = release.name || "My App";
-            card.querySelector(".app-version").textContent = release.tag_name || "v1.0.0";
-            card.querySelector(".app-desc").textContent = release.body || "Latest stable release.";
-            card.querySelector(".download").href = asset.browser_download_url;
-            card.querySelector(".size").textContent = (asset.size / (1024*1024)).toFixed(2) + " MB";
-            card.querySelector(".updated").textContent = "Updated: " + new Date(release.published_at).toLocaleDateString();
-            const appName = release.name;  
-const iconPng = `icons/${appName}.png`;  
-const iconJpg = `icons/${appName}.jpg`;  
-const iconJpeg = `icons/${appName}.jpeg`;  
+        if (releases.length > 0) {
+          releases.forEach(release => {
+            if (release.assets && release.assets.length > 0) {
+              release.assets.forEach(asset => {
+                if (asset.name.endsWith(".apk")) {
+                  const card = template.content.cloneNode(true);
+                  card.querySelector(".app-name").textContent = release.name || "My App";
+                  card.querySelector(".app-version").textContent = release.tag_name || "v1.0.0";
+                  card.querySelector(".app-desc").textContent = release.body || "Stable release.";
+                  card.querySelector(".download").href = asset.browser_download_url;
+                  card.querySelector(".size").textContent = (asset.size / (1024*1024)).toFixed(2) + " MB";
+                  card.querySelector(".updated").textContent = "Updated: " + new Date(release.published_at).toLocaleDateString();
 
-// Naya image object banao
-const img = new Image();
-img.onload = function() {
-  card.querySelector(".app-icon").src = img.src;
-};
+                  // Icon logic
+                  const appName = release.name;  
+                  const iconPng = `icons/${appName}.png`;  
+                  const iconJpg = `icons/${appName}.jpg`;  
+                  const iconJpeg = `icons/${appName}.jpeg`;  
 
-// Pehle PNG try karega, fir JPG, fir JPEG
-img.onerror = function() {
-  if (img.src.endsWith(".png")) {
-    img.src = iconJpg;
-  } else if (img.src.endsWith(".jpg")) {
-    img.src = iconJpeg;
-  } else {
-    img.src = "assets/logo.svg"; // default logo
-  }
-};
+                  const img = new Image();
+                  img.onload = function() {
+                    card.querySelector(".app-icon").src = img.src;
+                  };
+                  img.onerror = function() {
+                    if (img.src.endsWith(".png")) {
+                      img.src = iconJpg;
+                    } else if (img.src.endsWith(".jpg")) {
+                      img.src = iconJpeg;
+                    } else {
+                      img.src = "assets/logo.svg"; // default logo
+                    }
+                  };
+                  img.src = iconPng;
 
-img.src = iconPng;
-            appsContainer.appendChild(card);
+                  appsContainer.appendChild(card);
+                }
+              });
+            }
           });
         } else {
-          appsContainer.innerHTML = "<p>No APK found in the latest release.</p>";
+          appsContainer.innerHTML = "<p>No releases found.</p>";
         }
       } catch (err) {
         console.error(err);
@@ -174,7 +179,7 @@ img.src = iconPng;
       }
     }
 
-    document.addEventListener("DOMContentLoaded", loadLatestRelease);
+    document.addEventListener("DOMContentLoaded", loadAllReleases);
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
