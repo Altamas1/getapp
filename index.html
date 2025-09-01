@@ -14,28 +14,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 <link rel="icon" href="assets/logo.svg">
+
+<!-- ✅ AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" data-aos="fade-down">
     <div class="container header-inner">
       <a class="brand" href="/">
         <img src="apks/IMG_20250831_151514.png" alt="APK Hub" class="logo" />
         <span>GeatApp</span>
       </a>
       <nav class="nav">
-        <a href="#apps">Apps</a>
-        <a href="#about">About</a>
-        <button id="open-terms" class="btn btn-ghost">Terms</button>
+        <a href="#apps" data-aos="fade-left" data-aos-delay="200">Apps</a>
+        <a href="#about" data-aos="fade-left" data-aos-delay="400">About</a>
+        <button id="open-terms" class="btn btn-ghost" data-aos="fade-left" data-aos-delay="600">Terms</button>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" data-aos="zoom-in">
       <div class="container hero-inner">
         <h1>Download Smarter, Faster 🚀<span class="accent">APKs</span></h1>
         <p class="sub">Get your favorite apps with just one click. Safe, fast, and simple </p>
-        <div class="searchbar">
+        <div class="searchbar" data-aos="fade-up">
           <input id="search" type="search" placeholder="Search apps…" aria-label="Search apps" />
           <select id="sort">
             <option value="name">Sort: Name</option>
@@ -47,9 +50,9 @@
     </section>
 
     <!-- Auto APK list -->
-    <section id="apps" class="container grid"></section>
+    <section id="apps" class="container grid" data-aos="fade-up"></section>
 
-    <section id="about" class="container about">
+    <section id="about" class="container about" data-aos="fade-right">
       <h2>About</h2>
       <p>
         Welcome to GeatApp – your trusted place for downloading apps safely and easily.
@@ -63,7 +66,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" data-aos="fade-up">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Geat App. All rights reserved.</p>
       <div class="links">
@@ -73,7 +76,7 @@
   </footer>
 
   <!-- Terms Modal -->
-  <dialog id="terms" class="modal">
+  <dialog id="terms" class="modal" data-aos="zoom-in">
     <form method="dialog" class="modal-card">
       <h3>Terms & Disclaimer</h3>
       <div class="modal-body">
@@ -96,7 +99,7 @@
 
   <!-- Template for app cards -->
   <template id="app-card">
-    <article class="card">
+    <article class="card" data-aos="zoom-in-up">
       <div class="card-left">
         <img class="app-icon" alt="App icon" />
       </div>
@@ -179,8 +182,14 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", loadAllReleases);
+    document.addEventListener("DOMContentLoaded", () => {
+      loadAllReleases();
+      AOS.init({ duration: 800, once: true }); // ✅ Initialize animations
+    });
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <!-- ✅ AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
