@@ -15,30 +15,56 @@
 <link rel="stylesheet" href="style.css" />
 <link rel="icon" href="assets/logo.svg">
 
-<!-- ✅ AOS Animation CSS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- ✨ Shine Effect CSS -->
+<style>
+  .btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+  }
+  .btn:hover::before {
+    left: 150%;
+    transition: left 1s ease;
+  }
+</style>
 </head>
 <body>
-  <header class="site-header" data-aos="fade-down">
+  <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="/">
         <img src="apks/IMG_20250831_151514.png" alt="APK Hub" class="logo" />
         <span>GeatApp</span>
       </a>
       <nav class="nav">
-        <a href="#apps" data-aos="fade-left" data-aos-delay="200">Apps</a>
-        <a href="#about" data-aos="fade-left" data-aos-delay="400">About</a>
-        <button id="open-terms" class="btn btn-ghost" data-aos="fade-left" data-aos-delay="600">Terms</button>
+        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
+        <button id="open-terms" class="btn btn-ghost">Terms</button>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" data-aos="zoom-in">
+    <section class="hero">
       <div class="container hero-inner">
         <h1>Download Smarter, Faster 🚀<span class="accent">APKs</span></h1>
         <p class="sub">Get your favorite apps with just one click. Safe, fast, and simple </p>
-        <div class="searchbar" data-aos="fade-up">
+        <div class="searchbar">
           <input id="search" type="search" placeholder="Search apps…" aria-label="Search apps" />
           <select id="sort">
             <option value="name">Sort: Name</option>
@@ -50,9 +76,9 @@
     </section>
 
     <!-- Auto APK list -->
-    <section id="apps" class="container grid" data-aos="fade-up"></section>
+    <section id="apps" class="container grid"></section>
 
-    <section id="about" class="container about" data-aos="fade-right">
+    <section id="about" class="container about">
       <h2>About</h2>
       <p>
         Welcome to GeatApp – your trusted place for downloading apps safely and easily.
@@ -66,7 +92,7 @@
     </section>
   </main>
 
-  <footer class="site-footer" data-aos="fade-up">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Geat App. All rights reserved.</p>
       <div class="links">
@@ -76,7 +102,7 @@
   </footer>
 
   <!-- Terms Modal -->
-  <dialog id="terms" class="modal" data-aos="zoom-in">
+  <dialog id="terms" class="modal">
     <form method="dialog" class="modal-card">
       <h3>Terms & Disclaimer</h3>
       <div class="modal-body">
@@ -99,7 +125,7 @@
 
   <!-- Template for app cards -->
   <template id="app-card">
-    <article class="card" data-aos="zoom-in-up">
+    <article class="card">
       <div class="card-left">
         <img class="app-icon" alt="App icon" />
       </div>
@@ -120,10 +146,10 @@
     </article>
   </template>
 
-  <!-- Auto-fetch script -->
+  <!-- ✅ Auto-fetch script -->
   <script>
     async function loadAllReleases() {
-      const username = "Altamas1"; // 👈 apna GitHub username
+      const username = "Altamas1"; // 👈 apna username
       const repo = "getapp";       // 👈 apna repo
       const url = `https://api.github.com/repos/${username}/${repo}/releases`;
 
@@ -136,42 +162,44 @@
 
         if (releases.length > 0) {
           releases.forEach(release => {
-            if (release.assets && release.assets.length > 0) {
-              release.assets.forEach(asset => {
-                if (asset.name.endsWith(".apk")) {
-                  const card = template.content.cloneNode(true);
-                  card.querySelector(".app-name").textContent = release.name || "My App";
-                  card.querySelector(".app-version").textContent = release.tag_name || "v1.0.0";
-                  card.querySelector(".app-desc").textContent = release.body || "Stable release.";
-                  card.querySelector(".download").href = asset.browser_download_url;
-                  card.querySelector(".size").textContent = (asset.size / (1024*1024)).toFixed(2) + " MB";
-                  card.querySelector(".updated").textContent = "Updated: " + new Date(release.published_at).toLocaleDateString();
+            release.assets.forEach(asset => {
+              if (asset.name.endsWith(".apk")) {
+                const card = template.content.cloneNode(true);
+                card.querySelector(".app-name").textContent = release.name || "My App";
+                card.querySelector(".app-version").textContent = release.tag_name || "v1.0.0";
+                card.querySelector(".app-desc").textContent = release.body || "Stable release.";
+                card.querySelector(".download").href = asset.browser_download_url;
+                card.querySelector(".size").textContent = (asset.size / (1024*1024)).toFixed(2) + " MB";
+                card.querySelector(".updated").textContent = "Updated: " + new Date(release.published_at).toLocaleDateString();
 
-                  // Icon logic
-                  const appName = release.name;  
-                  const iconPng = `icons/${appName}.png`;  
-                  const iconJpg = `icons/${appName}.jpg`;  
-                  const iconJpeg = `icons/${appName}.jpeg`;  
+                // ✅ Auto-detect icon format (png, jpg, jpeg)
+                const appName = release.name.trim().toLowerCase();
+                const iconBase = `icons/${appName}`;
+                const possibleIcons = [
+                  `${iconBase}.png`,
+                  `${iconBase}.jpg`,
+                  `${iconBase}.jpeg`
+                ];
 
+                function tryLoadIcon(card, icons, index = 0) {
+                  if (index >= icons.length) {
+                    card.querySelector(".app-icon").src = "assets/logo.svg"; // fallback
+                    return;
+                  }
                   const img = new Image();
                   img.onload = function() {
                     card.querySelector(".app-icon").src = img.src;
                   };
                   img.onerror = function() {
-                    if (img.src.endsWith(".png")) {
-                      img.src = iconJpg;
-                    } else if (img.src.endsWith(".jpg")) {
-                      img.src = iconJpeg;
-                    } else {
-                      img.src = "assets/logo.svg"; // default logo
-                    }
+                    tryLoadIcon(card, icons, index + 1);
                   };
-                  img.src = iconPng;
-
-                  appsContainer.appendChild(card);
+                  img.src = icons[index];
                 }
-              });
-            }
+
+                tryLoadIcon(card, possibleIcons);
+                appsContainer.appendChild(card);
+              }
+            });
           });
         } else {
           appsContainer.innerHTML = "<p>No releases found.</p>";
@@ -182,14 +210,8 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      loadAllReleases();
-      AOS.init({ duration: 800, once: true }); // ✅ Initialize animations
-    });
+    document.addEventListener("DOMContentLoaded", loadAllReleases);
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
-  <!-- ✅ AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
