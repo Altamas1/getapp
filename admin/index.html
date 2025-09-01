@@ -1,1 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TumharaDesh — Social & Economic News</title>
+  <meta name="description" content="TumharaDesh: Timely, trusted social and economic news from India and the world. In-depth analysis, verified reporting, and expert opinion." />
+  <meta name="keywords" content="news, social news, economic news, India, analysis, TumharaDesh" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="assets/logo.svg" />
 
+  <!-- Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- JSON-LD Organization (structured data for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "TumharaDesh",
+    "url": "https://tumharadesh.netlify.app",
+    "logo": "https://tumharadesh.netlify.app/assets/logo.svg",
+    "description": "Social & Economic news focusing on accurate reporting and thoughtful analysis."
+  }
+  </script>
+
+  <!-- Minimal CSS -->
+  <style>
+    :root{
+      --bg:#0f1723;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#061024 0%, #071026 100%);color:#e6eef6}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    header.site-header{backdrop-filter:saturate(120%) blur(6px);background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .logo{width:44px;height:44px;border-radius:8px;object-fit:cover}
+    nav.nav a, nav.nav button{margin-left:12px;background:none;border:none;color:var(--muted);text-decoration:none;font-weight:600;cursor:pointer}
+    .hero{padding:36px 0;text-align:left}
+    .hero h1{font-size:28px;margin:0 0 8px;color:white}
+    .hero .sub{color:var(--muted);margin:0 0 16px}
+    .searchbar{display:flex;gap:8px;align-items:center}
+    .searchbar input[type="search"]{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit}
+    .searchbar select{padding:10px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);color:inherit}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-top:28px}
+    .card{display:flex;gap:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);align-items:flex-start;border:1px solid rgba(255,255,255,0.03)}
+    .card-left img{width:112px;height:72px;object-fit:cover;border-radius:8px}
+    .card-right{flex:1}
+    .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .card h3{margin:0;font-size:18px}
+    .badge{background:rgba(255,255,255,0.03);color:var(--muted);padding:6px 8px;border-radius:999px;font-size:12px}
+    .app-desc{color:var(--muted);margin:8px 0 12px}
+    .meta{display:flex;gap:8px;color:var(--muted);font-size:13px;margin-bottom:8px}
+    .actions{display:flex;gap:8px;align-items:center}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent), #3b82f6);color:#062024;font-weight:700;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden}
+    .btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+    .btn::before{content:"";position:absolute;top:0;left:-120%;width:40%;height:100%;background:linear-gradient(120deg, rgba(255,255,255,0.1), rgba(255,255,255,0.6), rgba(255,255,255,0.1));transform:skewX(-25deg)}
+    .btn:hover::before{left:140%;transition:left .9s ease}
+    footer.site-footer{padding:26px 0;border-top:1px solid rgba(255,255,255,0.03);margin-top:36px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .policy{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin-top:18px}
+    @media (max-width:720px){
+      .card{flex-direction:column}
+      .card-left img{width:100%;height:180px}
+      .header-inner{flex-direction:column;align-items:flex-start}
+    }
+    .muted{color:var(--muted)} .accent{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="assets/logo.svg" alt="TumharaDesh logo" class="logo" />
+        <div>
+          <strong style="font-size:16px">TumharaDesh</strong><br>
+          <small class="muted">Social & Economic News</small>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="#apps">Home</a>
+        <a href="#about">About</a>
+        <a href="#policies">Policies</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" data-aos="zoom-in">
+      <h1>TumharaDesh — Trusted social & economic reporting</h1>
+      <p class="sub muted">Independent, verified stories and analysis on social issues, public policy, and economic trends.</p>
+      <div class="searchbar" data-aos="fade-up" style="margin-top:16px">
+        <input id="search" type="search" placeholder="Search stories…" aria-label="Search posts" />
+        <select id="sort" aria-label="Sort posts">
+          <option value="latest">Sort: Latest</option>
+          <option value="oldest">Sort: Oldest</option>
+          <option value="title">Sort: Title</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="apps" class="grid"></section>
+
+    <section id="about" class="policy" data-aos="fade-right">
+      <h2>About TumharaDesh</h2>
+      <p>
+        TumharaDesh is an independent news platform focused on social and economic stories that matter to communities across India.
+        We publish news reports, investigative features, data-driven analysis and expert opinions — with an emphasis on accuracy, transparency and context.
+      </p>
+    </section>
+
+    <section id="policies" class="policy" data-aos="fade-left">
+      <h2>Policies & Legal</h2>
+      <p class="muted">TumharaDesh maintains clear policies for privacy, content, advertising and corrections to ensure trust and compliance.</p>
+      <ul>
+        <li><a href="#terms-full">Terms & Conditions</a></li>
+        <li><a href="#privacy-full">Privacy Policy</a></li>
+        <li><a href="#disclaimer-full">Disclaimer</a></li>
+      </ul>
+    </section>
+
+    <article id="terms-full" class="policy" data-aos="fade-up">
+      <h3>Terms & Conditions</h3>
+      <p>By using TumharaDesh you agree to our editorial guidelines, fair use of content and community rules.</p>
+    </article>
+
+    <article id="privacy-full" class="policy" data-aos="fade-up">
+      <h3>Privacy Policy</h3>
+      <p>TumharaDesh does not sell your data. We only collect basic analytics and respect your privacy.</p>
+    </article>
+
+    <article id="disclaimer-full" class="policy" data-aos="fade-up">
+      <h3>Disclaimer</h3>
+      <p>News articles are provided for informational purposes only. Opinions belong to the authors.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> TumharaDesh. All rights reserved.</div>
+      <div style="display:flex;gap:8px">
+        <a href="#terms-full" class="muted">Terms</a>
+        <a href="#privacy-full" class="muted">Privacy</a>
+        <a href="#disclaimer-full" class="muted">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Template for posts -->
+  <template id="blog-card">
+    <article class="card" data-aos="zoom-in-up">
+      <div class="card-left">
+        <img class="thumb" alt="Post thumbnail" />
+      </div>
+      <div class="card-right">
+        <div class="card-head">
+          <h3 class="post-title"></h3>
+          <span class="badge post-date"></span>
+        </div>
+        <p class="app-desc post-excerpt"></p>
+        <div class="meta">
+          <span class="muted post-author"></span>
+          <span class="muted post-category" style="margin-left:8px"></span>
+        </div>
+        <div class="actions" style="margin-top:10px">
+          <a class="btn read-more" target="_blank" rel="noopener">Read More</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // SAMPLE POSTS
+    const posts = [
+      {
+        title: "Inflation Eases Slightly — What It Means for Households",
+        excerpt: "New government data shows a marginal slowdown in inflation. Experts break down the impact on food prices and wages.",
+        date: "2025-09-01",
+        author: "Riya Sharma",
+        category: "Economy",
+        thumbnail: "assets/posts/inflation.jpg",
+        url: "posts/inflation-eases.html"
+      },
+      {
+        title: "Farmers’ Protests and Policy Responses",
+        excerpt: "A deep-dive into protests, interviews with farmers and policy proposals aimed at sustainable solutions.",
+        date: "2025-08-28",
+        author: "Arjun Patel",
+        category: "Social",
+        thumbnail: "assets/posts/farmers.jpg",
+        url: "posts/farmers-protests.html"
+      }
+    ];
+
+    function renderPosts(list) {
+      const container = document.getElementById('apps');
+      container.innerHTML = "";
+      const template = document.getElementById('blog-card');
+      if (!list.length) { container.innerHTML = "<p class='muted'>No posts yet.</p>"; return; }
+      list.forEach(post => {
+        const card = template.content.cloneNode(true);
+        card.querySelector('.post-title').textContent = post.title;
+        card.querySelector('.post-date').textContent = new Date(post.date).toLocaleDateString();
+        card.querySelector('.post-excerpt').textContent = post.excerpt;
+        card.querySelector('.post-author').textContent = "By " + post.author;
+        card.querySelector('.post-category').textContent = post.category;
+        card.querySelector('.thumb').src = post.thumbnail || 'assets/logo.svg';
+        card.querySelector('.read-more').href = post.url || "#";
+        container.appendChild(card);
+      });
+      AOS.refresh();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const sort = document.getElementById('sort').value;
+      let filtered = posts.filter(p => (p.title + p.excerpt + p.author + p.category).toLowerCase().includes(q));
+      if (sort === 'latest') filtered.sort((a,b)=> new Date(b.date)-new Date(a.date));
+      else if (sort === 'oldest') filtered.sort((a,b)=> new Date(a.date)-new Date(b.date));
+      else if (sort === 'title') filtered.sort((a,b)=> a.title.localeCompare(b.title));
+      renderPosts(filtered);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 700, once: true });
+      renderPosts(posts);
+      document.getElementById('search').addEventListener('input', ()=>applyFilters());
+      document.getElementById('sort').addEventListener('change', applyFilters);
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
